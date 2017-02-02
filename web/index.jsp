@@ -34,9 +34,11 @@
 				face="Arial">Ajout Adhérent</font></a></li>
 		<li><a href="AdherentController?action=listerAdherent"><font
 				face="Arial">lister les adhérents</font></a><font face="Arial"> </font></li>
-
+		<li><a href="ProprietaireController?action=listerProprietaire"><font
+				face="Arial">lister les propriétaires</font></a><font face="Arial"> </font></li>
 		<li><a href="OeuvreController?action=listerOeuvreVente"><font
 				face="Arial">lister les oeuvres</font></a><font face="Arial"> </font></li>
+
 
 		<li><a href="javascript:fermer()"><font face="Arial">Quitter</font></a><font
 			face="Arial"> </font></li>
