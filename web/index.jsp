@@ -5,43 +5,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=javascript:fermer();">
 <title>Expo : Médiathèque De POLYTECH</title>
 </head>
-
-
-<script language="JavaScript">
-	function fermer() {
-
-	}
-</script>
 
 <body>
 	<p align="center"></p>
 	<p align="center">
-		<font face="Arial" size="4"><u>Médiathèque de POLYTECH </u></font>
+		Médiathèque de POLYTECH
 	</p>
 	<p align="center">
-		<font color="#004080" face="Arial" size="4">Gestion de
-			l'exposition 2016</font>
+		Gestion de l'exposition 2016
 	</p>
 	<p align="left">
-		<font color="#004080" face="Arial"><u>Sélectionnez la
-				fonctionnalité voulue:</u></font>
+		Sélectionnez la fonctionnalité voulue:
 	</p>
 	<ul>
-		<li><a href="AdherentController?action=ajouterAdherent"><font
-				face="Arial">Ajout Adhérent</font></a></li>
-		<li><a href="AdherentController?action=listerAdherent"><font
-				face="Arial">lister les adhérents</font></a><font face="Arial"> </font></li>
-		<li><a href="ProprietaireController?action=listerProprietaire"><font
-				face="Arial">lister les propriétaires</font></a><font face="Arial"> </font></li>
-		<li><a href="OeuvreController?action=listerOeuvreVente"><font
-				face="Arial">lister les oeuvres</font></a><font face="Arial"> </font></li>
+		<li><a href="AdherentController?action=ajouterAdherent">Ajout Adhérent</a></li>
+		<li><a href="AdherentController?action=listerAdherent">lister les adhérents</a></li>
 
+		<li><a href="ProprietaireController?action=listerProprietaire">lister les propriétaires</a></li>
 
-		<li><a href="javascript:fermer()"><font face="Arial">Quitter</font></a><font
-			face="Arial"> </font></li>
+		<li><a href="OeuvreController?action=listerOeuvreVente">lister les oeuvres vente</a></li>
+		<li><a href="OeuvreController?action=ajouterOeuvreVente">Ajouter une oeuvre vente</a></li>
 	</ul>
 </body>
 </html>

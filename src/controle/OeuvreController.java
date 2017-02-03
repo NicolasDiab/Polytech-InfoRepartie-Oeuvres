@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.OeuvreService;
+import dao.ProprietaireService;
 import meserreurs.*;
+import metier.Oeuvrevente;
+import metier.Proprietaire;
 
 @WebServlet("/OeuvreController")
 public class OeuvreController extends HttpServlet {
@@ -54,6 +57,40 @@ public class OeuvreController extends HttpServlet {
                 e.printStackTrace();
             }
             destinationPage = "/listerOeuvreVente.jsp";
+        }
+        else if (AJOUTER_OEUVRE_VENTE.equals(actionName)) {
+            // Récupère la liste des propriétaires (pour la clé étrangère)
+            try {
+                ProprietaireService proprietaireService = new ProprietaireService();
+                request.setAttribute("mesProprietaires", proprietaireService.consulterListeProprietaires());
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            destinationPage = "/ajouterOeuvreVente.jsp";
+        }
+        else if (INSERER_OEUVRE_VENTE.equals(actionName)) {
+            try {
+                Oeuvrevente oeuvrevente = new Oeuvrevente();
+                oeuvrevente.setTitreOeuvrevente(request.getParameter("titre"));
+                oeuvrevente.setPrixOeuvrevente(Float.parseFloat(request.getParameter("prix")));
+
+                // récupération du propriétaire
+                int propNum = Integer.parseInt(request.getParameter("proprietaireNum"));
+
+                ProprietaireService proprietaireService = new ProprietaireService();
+                Proprietaire p = proprietaireService.obtenirProprietaire(propNum);
+
+                oeuvrevente.setProprietaire(p);
+
+                // ajout effectif
+                OeuvreService oeuvreService = new OeuvreService();
+                oeuvreService.insertOeuvreVente(oeuvrevente);
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            destinationPage = "/index.jsp";
         }
         else {
             String messageErreur = "[" + actionName + "] n'est pas une action valide.";

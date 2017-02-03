@@ -49,9 +49,9 @@ public class OeuvreService {
         DialogueBd unDialogueBd = DialogueBd.getInstance();
         try {
             mysql = "insert into oeuvrevente(titre_oeuvrevente,etat_oeuvrevente,prix_oeuvrevente,id_proprietaire)  " +
-                    "values ('"+ uneOeuvre.getTitreOeuvrevente();
-            mysql += "'" + ",'" + uneOeuvre.getEtatOeuvrevente() + "','" + uneOeuvre.getPrixOeuvrevente();
-            mysql +=  "'" + ",'" + uneOeuvre.getProprietaire().getIdProprietaire() + "')";
+                    "values ('"+ uneOeuvre.getTitreOeuvrevente() +
+                     "'" + ",'L','" + uneOeuvre.getPrixOeuvrevente() +
+                     "'" + ",'" + uneOeuvre.getProprietaire().getIdProprietaire() + "')";
 
             unDialogueBd.insertionBD(mysql);
         } catch (MonException e) {
