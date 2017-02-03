@@ -12,6 +12,15 @@ import java.util.List;
  * @author GregoirePiat <gregoire.piat@outlook.fr>
  */
 public class ProprietaireService {
+    public Proprietaire obtenirProprietaire(int numero) throws MonException {
+        String mysql = "select * from proprietaire where id_proprietaire=" + numero;
+        List<Proprietaire> proprietaires = consulterListeProprietaires(mysql);
+        if (proprietaires.isEmpty())
+            return null;
+        else {
+            return proprietaires.get(0);
+        }
+    }
 
     public List<Proprietaire> consulterListeProprietaires() throws MonException {
         String mysql = "select * from proprietaire";
