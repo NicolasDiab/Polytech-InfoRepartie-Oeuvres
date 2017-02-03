@@ -38,8 +38,15 @@ public class FonctionsUtiles {
             throws Exception {
         Date datesortie;
         // on definit un format de sortie
-        SimpleDateFormat defFormat = new SimpleDateFormat(unformat);
+        String formatDefault = "dd/MM/yyyy";
+        SimpleDateFormat defFormat = new SimpleDateFormat(unformat == null || unformat == "" ? formatDefault : unformat);
         datesortie = defFormat.parse(unedate);
         return datesortie;
+    }
+
+    public static Date conversionChaineenDate(String unedate)
+            throws Exception {
+        String formatDefault = "dd/MM/yyyy";
+        return conversionChaineenDate(unedate, formatDefault);
     }
 }

@@ -7,19 +7,19 @@ import metier.*;
 import persistance.*;
 
 public class OeuvreService {
-    public List<Oeuvrevente> consulterListeOeuvresVente() throws MonException {
+    public List<OeuvreVente> consulterListeOeuvresVente() throws MonException {
         String mysql = "select * from oeuvrevente o join proprietaire p on o.id_proprietaire = p.id_proprietaire";
         return consulterListeOeuvresVente(mysql);
     }
 
-    private List<Oeuvrevente> consulterListeOeuvresVente(String mysql) throws MonException {
+    private List<OeuvreVente> consulterListeOeuvresVente(String mysql) throws MonException {
         List<Object> rs;
-        List<Oeuvrevente> mesOeuvres = new ArrayList<>();
+        List<OeuvreVente> mesOeuvres = new ArrayList<>();
         int index = 0;
         try {
             rs = DialogueBd.lecture(mysql);
             while (index < rs.size()) {
-                Oeuvrevente oeuvre = new Oeuvrevente();
+                OeuvreVente oeuvre = new OeuvreVente();
 
                 oeuvre.setIdOeuvrevente(Integer.parseInt(rs.get(index + 0).toString()));
                 oeuvre.setTitreOeuvrevente(rs.get(index + 1).toString());
@@ -43,7 +43,7 @@ public class OeuvreService {
         }
     }
 
-    public void insertOeuvreVente(Oeuvrevente uneOeuvre) throws MonException {
+    public void insertOeuvreVente(OeuvreVente uneOeuvre) throws MonException {
         String mysql;
 
         DialogueBd unDialogueBd = DialogueBd.getInstance();

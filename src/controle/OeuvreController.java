@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.OeuvreService;
 import dao.ProprietaireService;
 import meserreurs.*;
-import metier.Oeuvrevente;
+import metier.OeuvreVente;
 import metier.Proprietaire;
 
 @WebServlet("/OeuvreController")
@@ -71,9 +71,9 @@ public class OeuvreController extends HttpServlet {
         }
         else if (INSERER_OEUVRE_VENTE.equals(actionName)) {
             try {
-                Oeuvrevente oeuvrevente = new Oeuvrevente();
-                oeuvrevente.setTitreOeuvrevente(request.getParameter("titre"));
-                oeuvrevente.setPrixOeuvrevente(Float.parseFloat(request.getParameter("prix")));
+                OeuvreVente oeuvreVente = new OeuvreVente();
+                oeuvreVente.setTitreOeuvrevente(request.getParameter("titre"));
+                oeuvreVente.setPrixOeuvrevente(Float.parseFloat(request.getParameter("prix")));
 
                 // récupération du propriétaire
                 int propNum = Integer.parseInt(request.getParameter("proprietaireNum"));
@@ -81,11 +81,11 @@ public class OeuvreController extends HttpServlet {
                 ProprietaireService proprietaireService = new ProprietaireService();
                 Proprietaire p = proprietaireService.obtenirProprietaire(propNum);
 
-                oeuvrevente.setProprietaire(p);
+                oeuvreVente.setProprietaire(p);
 
                 // ajout effectif
                 OeuvreService oeuvreService = new OeuvreService();
-                oeuvreService.insertOeuvreVente(oeuvrevente);
+                oeuvreService.insertOeuvreVente(oeuvreVente);
             } catch (MonException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

@@ -1,7 +1,6 @@
 package metier;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
 
 
@@ -14,18 +13,18 @@ public class Reservation implements Serializable {
 	
 	private Date date;
 	private Adherent adherent;
-	private Oeuvrevente oeuvrevente;
+	private OeuvreVente oeuvreVente;
 
 	public Reservation() {
 	}
 
 
 
-	public Reservation(Date date, Adherent adherent, Oeuvrevente oeuvrevente) {
+	public Reservation(Date date, Adherent adherent, OeuvreVente oeuvreVente) {
 		super();
 		this.date = date;
 		this.adherent = adherent;
-		this.oeuvrevente = oeuvrevente;
+		this.oeuvreVente = oeuvreVente;
 	}
 
 
@@ -46,12 +45,12 @@ public class Reservation implements Serializable {
 		this.adherent = adherent;
 	}
 
-	public Oeuvrevente getOeuvrevente() {
-		return this.oeuvrevente;
+	public OeuvreVente getOeuvreVente() {
+		return this.oeuvreVente;
 	}
 
-	public void setOeuvrevente(Oeuvrevente oeuvrevente) {
-		this.oeuvrevente = oeuvrevente;
+	public void setOeuvreVente(OeuvreVente oeuvreVente) {
+		this.oeuvreVente = oeuvreVente;
 	}
 
 }

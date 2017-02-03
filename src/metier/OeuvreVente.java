@@ -8,7 +8,7 @@ import java.io.Serializable;
  * 
  */
 
-public class Oeuvrevente implements Serializable {
+public class OeuvreVente implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int idOeuvrevente;
 	private String etatOeuvrevente;
@@ -17,8 +17,8 @@ public class Oeuvrevente implements Serializable {
 	private Proprietaire proprietaire;
 
 
-	public Oeuvrevente(int idOeuvrevente, String etatOeuvrevente, float prixOeuvrevente, String titreOeuvrevente,
-			Proprietaire proprietaire) {
+	public OeuvreVente(int idOeuvrevente, String etatOeuvrevente, float prixOeuvrevente, String titreOeuvrevente,
+                       Proprietaire proprietaire) {
 		super();
 		this.idOeuvrevente = idOeuvrevente;
 		this.etatOeuvrevente = etatOeuvrevente;
@@ -27,7 +27,7 @@ public class Oeuvrevente implements Serializable {
 		this.proprietaire = proprietaire;
 	}
 
-	public Oeuvrevente() {
+	public OeuvreVente() {
 	}
 
 	public int getIdOeuvrevente() {
