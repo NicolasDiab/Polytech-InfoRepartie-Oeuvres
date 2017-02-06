@@ -94,9 +94,9 @@ public class ReservationController extends HttpServlet {
                 // récupération de l'oeuvre vente
                 int oeuvreNum = Integer.parseInt(request.getParameter("oeuvreVenteNum"));
                 OeuvreService oeuvreService = new OeuvreService();
-                //TODO
-                //OeuvreVente o = oeuvreService.obt(oeuvreNum);
-                //reservation.setOeuvreVente(o);
+
+                OeuvreVente o = oeuvreService.obtenirOeuvreVente(oeuvreNum);
+                reservation.setOeuvreVente(o);
 
                 // ajout effectif
                 ReservationService reservationService = new ReservationService();

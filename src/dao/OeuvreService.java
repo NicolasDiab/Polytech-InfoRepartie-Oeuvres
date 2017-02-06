@@ -7,6 +7,16 @@ import metier.*;
 import persistance.*;
 
 public class OeuvreService {
+    public OeuvreVente obtenirOeuvreVente(int numero) throws MonException {
+        String mysql = "select * from oeuvrevente where id_oeuvrevente=" + numero;
+        List<OeuvreVente> mesOeuvresVente = consulterListeOeuvresVente(mysql);
+        if (mesOeuvresVente.isEmpty())
+            return null;
+        else {
+            return mesOeuvresVente.get(0);
+        }
+    }
+
     public List<OeuvreVente> consulterListeOeuvresVente() throws MonException {
         String mysql = "select * from oeuvrevente o join proprietaire p on o.id_proprietaire = p.id_proprietaire";
         return consulterListeOeuvresVente(mysql);
@@ -50,8 +60,8 @@ public class OeuvreService {
         try {
             mysql = "insert into oeuvrevente(titre_oeuvrevente,etat_oeuvrevente,prix_oeuvrevente,id_proprietaire)  " +
                     "values ('"+ uneOeuvre.getTitreOeuvrevente() +
-                     "'" + ",'L','" + uneOeuvre.getPrixOeuvrevente() +
-                     "'" + ",'" + uneOeuvre.getProprietaire().getIdProprietaire() + "')";
+                    "'" + ",'L','" + uneOeuvre.getPrixOeuvrevente() +
+                    "'" + ",'" + uneOeuvre.getProprietaire().getIdProprietaire() + "')";
 
             unDialogueBd.insertionBD(mysql);
         } catch (MonException e) {
