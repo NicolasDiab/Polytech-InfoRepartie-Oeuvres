@@ -62,7 +62,7 @@ public class ReservationController extends HttpServlet {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            destinationPage = "/listerReservations.jsp";
+            destinationPage = "/listerReservation.jsp";
         }
         else if (AJOUTER_RESERVATION.equals(actionName)) {
             // Récupère la liste des adhérents et des oeuvres (pour les clés étrangères)

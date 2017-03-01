@@ -27,6 +27,8 @@
 
 		<li><a href="OeuvreController?action=listerOeuvreVente">lister les oeuvres vente</a></li>
 		<li><a href="OeuvreController?action=ajouterOeuvreVente">Ajouter une oeuvre vente</a></li>
+
+		<li><a href="ReservationController?action=listerReservations">lister les réservations</a></li>
 	</ul>
 </body>
 </html>
