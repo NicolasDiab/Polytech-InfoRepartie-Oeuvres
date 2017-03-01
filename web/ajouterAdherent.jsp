@@ -4,7 +4,7 @@
 <jsp:include page="part/nav.jsp"/>
 <h1 class="text-center"> Ajout d'un adhérent</h1>
 
-<form name='identification' method="post" action="AdherentController?action=insererAdherent" onsubmit="return teste()">
+<form name='identification' method="post" action="AdherentController?action=insererAdherent"">
 
     <div class="form-group">
         <label for="nom">Nom de l'adherent </label>
