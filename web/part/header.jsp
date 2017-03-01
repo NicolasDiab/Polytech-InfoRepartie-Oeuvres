@@ -17,3 +17,4 @@
     <link href="/css/main.css" rel="stylesheet">
 </head>
 <body>
+<div class="container-fluid">

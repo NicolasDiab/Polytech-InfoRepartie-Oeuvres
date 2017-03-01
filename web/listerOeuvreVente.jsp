@@ -4,36 +4,37 @@
          pageEncoding="UTF-8"%>
 <jsp:include page="part/header.jsp" />
 <jsp:include page="part/nav.jsp" />
-<P>
-    <A href="index.jsp"><FONT face="Arial" color="#004080">Retour
-        Accueil</FONT></A>
-</P>
-<P align="center">
-    <FONT face="Arial" size="5" color="#004080"><U> <STRONG>Listing&nbsp;des
-        oeuvres </STRONG></U></FONT>
-</P>
+<h1 class="text-center">
+    Listing des oeuvres
+</h1>
 
-<TABLE BORDER="1">
-    <CAPTION>Tableau des Oeuvres</CAPTION>
-    <TR>
-        <TH>Id</TH>
-        <TH>Titre</TH>
-        <TH>Prix</TH>
-        <TH>Propriétaire</TH>
-        <TH>Réserver/modifier</TH>
-    </TR>
-
+<table class="table table-striped table-hover">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>Prix</th>
+        <th>Propriétaire</th>
+        <th>Réserver/modifier</th>
+    </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${mesOeuvresVente}" var="item">
         <tr>
             <td>${item.idOeuvrevente}</td>
             <td>${item.titreOeuvrevente}</td>
             <td>${item.prixOeuvrevente}</td>
             <td>
-                ${item.proprietaire.idProprietaire}
-                ${item.proprietaire.prenomProprietaire}
-                ${item.proprietaire.nomProprietaire}
+                    ${item.proprietaire.idProprietaire}
+                    ${item.proprietaire.prenomProprietaire}
+                    ${item.proprietaire.nomProprietaire}
             </td>
         </tr>
     </c:forEach>
-</TABLE>
+    </tbody>
+</table>
+<a href="/OeuvreController?action=ajouterOeuvreVente" class="btn btn-danger">Ajouter Oeuvre</a>
+
+<a href="/" class="btn btn-primary">Retour à l'accueil</a>
+
 <jsp:include page="part/footer.jsp" />

@@ -4,30 +4,28 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="part/header.jsp" />
 <jsp:include page="part/nav.jsp" />
-	<P>
-		<A href="index.jsp"><FONT face="Arial" color="#004080">Retour
-				Accueil</FONT></A>
-	</P>
-	<P align="center">
-		<FONT face="Arial" size="5" color="#004080"><U> <STRONG>Listing&nbsp;des
-					Propriétaires </STRONG></U></FONT>
-	</P>
+<h1 class="text-center">
+	Listing des	Propriétaires
+</h1>
 
-	<TABLE BORDER="1">
-		<CAPTION>Tableau des Propriétaires</CAPTION>
-		<TR>
-			<TH>Id</TH>
-			<TH>Nom</TH>
-			<TH>Prénom</TH>
+<table class="table table-striped table-hover">
+	<thead>
+	<tr>
+		<th>Id</th>
+		<th>Nom</th>
+		<th>Prénom</th>
+	</tr>
+	</thead>
+	<tbody>
+	<c:forEach items="${mesProprietaires}" var="item">
+		<tr>
+			<td>${item.idProprietaire}</td>
+			<td>${item.nomProprietaire}</td>
+			<td>${item.prenomProprietaire}</td>
+		</tr>
+	</c:forEach>
+	</tbody>
+</table>
+<a href="/" class="btn btn-primary">Retour à l'accueil</a>
 
-		</TR>
-
-		<c:forEach items="${mesProprietaires}" var="item">
-			<tr>
-				<td>${item.idProprietaire}</td>
-				<td>${item.nomProprietaire}</td>
-				<td>${item.prenomProprietaire}</td>
-			</tr>
-		</c:forEach>
-	</TABLE>
 <jsp:include page="part/footer.jsp" />

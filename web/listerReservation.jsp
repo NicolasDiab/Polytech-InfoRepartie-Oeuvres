@@ -4,41 +4,44 @@
          pageEncoding="UTF-8"%>
 <jsp:include page="part/header.jsp" />
 <jsp:include page="part/nav.jsp" />
-<P>
-    <A href="index.jsp"><FONT face="Arial" color="#004080">Retour
-        Accueil</FONT></A>
-</P>
-<P align="center">
-    <FONT face="Arial" size="5" color="#004080"><U> <STRONG>Listing&nbsp;des
-        réservations </STRONG></U></FONT>
-</P>
 
-<TABLE BORDER="1">
-    <CAPTION>Tableau des Réservations</CAPTION>
-    <TR>
-        <TH>Oeuvre</TH>
-        <TH>Adhérent</TH>
-        <TH>Date</TH>
-    </TR>
+<h1 class="text-center">
+    Listing des réservations
+</h1>
 
+<table class="table table-striped table-hover">
+    <thead>
+    <tr>
+        <th>Oeuvre</th>
+        <th>Adhérent</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${mesReservations}" var="item">
         <tr>
             <td>
-                ${item.oeuvreVente.idOeuvrevente}
-                ${item.oeuvreVente.titreOeuvrevente}
-                ${item.oeuvreVente.prixOeuvrevente}€
+                    ${item.oeuvreVente.idOeuvrevente}
+                    ${item.oeuvreVente.titreOeuvrevente}
+                    ${item.oeuvreVente.prixOeuvrevente}€
                 propriétaire :
-                ${item.oeuvreVente.proprietaire.prenomProprietaire}
-                ${item.oeuvreVente.proprietaire.nomProprietaire}
+                    ${item.oeuvreVente.proprietaire.prenomProprietaire}
+                    ${item.oeuvreVente.proprietaire.nomProprietaire}
             </td>
             <td>
-                ${item.adherent.idAdherent}
-                ${item.adherent.nomAdherent}
-                ${item.adherent.prenomAdherent}
-                ${item.adherent.villeAdherent}
+                    ${item.adherent.idAdherent}
+                    ${item.adherent.nomAdherent}
+                    ${item.adherent.prenomAdherent}
+                    ${item.adherent.villeAdherent}
             </td>
             <td>${item.date}</td>
         </tr>
     </c:forEach>
-</TABLE>
+    </tbody>
+</table>
+
+<a href="/ReservationController?action=ajouterReservation" class="btn btn-danger">Ajouter réservation</a>
+
+<a href="/" class="btn btn-primary">Retour à l'accueil</a>
+
 <jsp:include page="part/footer.jsp" />

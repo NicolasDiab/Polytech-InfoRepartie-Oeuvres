@@ -1,40 +1,39 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<jsp:include page="part/header.jsp" />
-<jsp:include page="part/nav.jsp" />
-	<P>
-		<A href="index.jsp"><FONT face="Arial" color="#004080">Retour
-				Accueil</FONT></A>
-	</P>
-	<P align="center">
-		<FONT face="Arial" size="5" color="#004080"><U> <STRONG>Listing&nbsp;des
-					Adhérents </STRONG></U></FONT>
-	</P>
+         pageEncoding="UTF-8" %>
+<jsp:include page="part/header.jsp"/>
+<jsp:include page="part/nav.jsp"/>
+<h1 class="text-center">
+    Listing des Adhérents
+</h1>
 
-	<TABLE BORDER="1">
-		<CAPTION>Tableau des Adhérents</CAPTION>
-		<TR>
-			<TH>Numero</TH>
-			<TH>Nom</TH>
-			<TH>Prénom</TH>
-			<TH>Ville</TH>
-			<TH>Modifier</TH>
+<table class="table table-striped table-hover">
+    <thead>
+    <tr>
+        <th>Numero</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Ville</th>
+        <th>Modifier</th>
+    </tr>
+    </thead>
 
-		</TR>
-
-		<c:forEach items="${mesAdherents}" var="item">
-			<tr>
-				<td>${item.idAdherent}</td>
-				<td>${item.nomAdherent}</td>
-				<td>${item.prenomAdherent}</td>
-                <td>${item.villeAdherent}</td>
-                <td>
-					<a href="AdherentController?action=modifierPageAdherent&adherentNum=${item.idAdherent}"><font
-						face="Arial">Modifier</font></a>
-				</td>
-			</tr>
-		</c:forEach>
-	</TABLE>
-<jsp:include page="part/footer.jsp" />
+    <tbody>
+    <c:forEach items="${mesAdherents}" var="item">
+        <tr>
+            <td>${item.idAdherent}</td>
+            <td>${item.nomAdherent}</td>
+            <td>${item.prenomAdherent}</td>
+            <td>${item.villeAdherent}</td>
+            <td>
+                <a href="AdherentController?action=modifierPageAdherent&adherentNum=${item.idAdherent}"><font
+                        face="Arial">Modifier</font></a>
+            </td>
+        </tr>
+    </c:forEach>
+    <tbody>
+</table>
+<a href="/AdherentController?action=ajouterAdherent" class="btn btn-danger">Ajouter adherent</a>
+<a href="/" class="btn btn-primary">Retour à l'accueil</a>
+<jsp:include page="part/footer.jsp"/>

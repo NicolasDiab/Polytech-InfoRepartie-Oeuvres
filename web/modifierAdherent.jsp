@@ -1,34 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<jsp:include page="part/header.jsp" />
-<jsp:include page="part/nav.jsp" />
-<H1> Modifier un adhérent </H1>
+         pageEncoding="UTF-8" %>
+<jsp:include page="part/header.jsp"/>
+<jsp:include page="part/nav.jsp"/>
 
-<DIV align="center">
-    <FORM  name='identification' method="post" action="AdherentController?action=modifierActionAdherent" onsubmit="return teste()">
-        <P align="left"><FONT face="Arial" color="#004080"></FONT>
-            <FONT face="Arial" color="#004080"> <BR>&nbsp;  &nbsp;  &nbsp; Nom de l'adherent : </FONT>
-            <INPUT type="text" name="txtNom" value="${adherent.nomAdherent}"  id ="nom"> <BR>
-            <FONT face="Arial" color="#004080">
-                <BR>Prénom de l'adherent : </FONT>
-            <INPUT type="text" name="txtPrenom"  id ="prenom" value="${adherent.prenomAdherent}"  > <BR>
+<h1 class="text-center"> Modifier un adhérent</h1>
 
-            <FONT face="Arial" color="#004080"> <BR>&nbsp;  &nbsp;  &nbsp; Ville de l'adherent :</FONT>
-            <INPUT type="text" name="txtVille" id ="ville" value="${adherent.villeAdherent}">
-            <FONT face="Arial" color="#004080">	<BR></FONT><BR>
+<form name='identification' method="post" action="AdherentController?action=modifierActionAdherent"
+      onsubmit="return teste()">
+    <div class="form-group">
+        <label for="nom">Nom de l'adherent </label>
+        <input type="text" name="txtnom" class="form-control" value="${adherent.nomAdherent}" id="nom" placeholder="Entrer le nom de l'adherent">
+    </div>
+    <div class="form-group">
+        <label for="prenom">Prenom de l'adherent </label>
+        <input type="text" name="txtprenom" class="form-control" value="${adherent.prenomAdherent}" id="prenom" placeholder="Entrer le Prenom de l'adherent">
+    </div>
+    <div class="form-group">
+        <label for="ville">Ville de l'adherent </label>
+        <input type="text" name="txtville" class="form-control" value="${adherent.villeAdherent}" id="ville" placeholder="Entrer la ville de l'adherent">
+    </div>
+
+    <input type="hidden" name="txtId" value="${adherent.idAdherent}">
+
+    <button type="submit" class="btn btn-primary">Valider</button>
+</form>
 
 
-            <INPUT type="hidden" name="txtId" value="${adherent.idAdherent}">
-            <!-- Boutons Ajouter -->
+<a href="/" class="btn btn-danger">Retour à l'accueil</a>
 
-            <INPUT type="submit" name="bt"  value="Valider" >
-            <FONT face="Arial" color="#004080"></FONT>
-            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-        </P></FORM>
-</DIV>
-<BR>
-
-<a href="AdherentController?action=listerAdherent"><font
-        face="Arial">Retour</font></a>
-<jsp:include page="part/footer.jsp" />
+<jsp:include page="part/footer.jsp"/>
