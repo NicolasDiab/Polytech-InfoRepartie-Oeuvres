@@ -25,7 +25,7 @@ import utilitaires.FonctionsUtiles;
 public class ReservationController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final String ACTION_TYPE = "action";
-    private static final String LISTER_RESERVATIONS = "listerReservations";
+    private static final String LISTER_RESERVATIONS = "listerReservation";
     private static final String AJOUTER_RESERVATION = "ajouterReservation";
     private static final String INSERER_RESERVATION = "insererReservation";
     private static final String ERROR_KEY = "messageErreur";
@@ -82,8 +82,8 @@ public class ReservationController extends HttpServlet {
             try {
                 Reservation reservation = new Reservation();
 
-               // Date d = FonctionsUtiles.conversionChaineenDate(request.getParameter("date"));
-                //reservation.setDate(d);
+                Date d = FonctionsUtiles.conversionChaineenDate(request.getParameter("date"));
+                reservation.setDate(d);
 
                 // récupération de l'adhérent
                 int adherentNum = Integer.parseInt(request.getParameter("adherentNum"));
@@ -103,6 +103,8 @@ public class ReservationController extends HttpServlet {
                 reservationService.insertReservation(reservation);
             } catch (MonException e) {
                 // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             destinationPage = "/index.jsp";

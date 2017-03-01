@@ -8,7 +8,8 @@ import persistance.*;
 
 public class OeuvreService {
     public OeuvreVente obtenirOeuvreVente(int numero) throws MonException {
-        String mysql = "select * from oeuvrevente where id_oeuvrevente=" + numero;
+        String mysql = "select * from oeuvrevente o join proprietaire p on o.id_proprietaire = p.id_proprietaire" +
+                " where id_oeuvrevente=" + numero;
         List<OeuvreVente> mesOeuvresVente = consulterListeOeuvresVente(mysql);
         if (mesOeuvresVente.isEmpty())
             return null;

@@ -15,7 +15,7 @@
 <DIV align="center">
 <FORM  name='identification' method="post" action="AdherentController?action=insererAdherent" onsubmit="return teste()">
      <P align="left"><FONT face="Arial" color="#004080"></FONT>     
-		<FONT face="Arial" color="#004080"> <BR>&nbsp;  &nbsp;  &nbsp; Nom de l'adherent : </FONT>
+		<FONT face="Arial" color="#004080"> <BR>Nom de l'adherent : </FONT>
 	    <INPUT type="text" name="txtnom" value=""  id ="nom"> <BR>
         <FONT face="Arial" color="#004080">
 		<BR>Prenom de l'adherent : </FONT>

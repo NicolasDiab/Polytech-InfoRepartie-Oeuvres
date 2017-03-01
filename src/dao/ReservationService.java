@@ -65,6 +65,19 @@ public class ReservationService {
     }
 
     public void insertReservation(Reservation reservation) throws MonException {
+        String mysql;
 
+        DialogueBd unDialogueBd = DialogueBd.getInstance();
+        try {
+            mysql = "insert into reservation(id_oeuvrevente,id_adherent,date_reservation,statut)  " +
+                    "values ('"+ reservation.getOeuvreVente().getIdOeuvrevente() + "'" +
+                    ", '" + reservation.getAdherent().getIdAdherent() + "'" +
+                    ", '" + reservation.getDate() + "'" +
+                    ", 'confirmee')";
+
+            unDialogueBd.insertionBD(mysql);
+        } catch (MonException e) {
+            throw e;
+        }
     }
 }
