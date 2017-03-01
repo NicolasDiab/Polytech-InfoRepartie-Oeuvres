@@ -23,9 +23,17 @@ public class FonctionsUtiles {
         return retour;
     }
 
+    public static String conversionDateenChaine(Date unedate)
+            throws Exception {
+        String formatDefault = "yyyy-MM-dd";
+        String datesortie = "";
+        // on dfinit un format de sortie
+        SimpleDateFormat defFormat = new SimpleDateFormat(formatDefault);
+        datesortie = defFormat.format(unedate);
+        return datesortie;
+    }
+
     public static String conversionDateenChaine(Date unedate, String modele)
-        // le modlet est une combinaison de MM dd yyyy avec / ou
-        // exemple dd/MM/yyyy
             throws Exception {
         String datesortie = "";
         // on dfinit un format de sortie

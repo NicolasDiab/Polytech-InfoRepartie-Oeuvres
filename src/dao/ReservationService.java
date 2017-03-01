@@ -69,15 +69,19 @@ public class ReservationService {
 
         DialogueBd unDialogueBd = DialogueBd.getInstance();
         try {
+            Date d = reservation.getDate();
+            String dateString = FonctionsUtiles.conversionDateenChaine(d);
             mysql = "insert into reservation(id_oeuvrevente,id_adherent,date_reservation,statut)  " +
                     "values ('"+ reservation.getOeuvreVente().getIdOeuvrevente() + "'" +
                     ", '" + reservation.getAdherent().getIdAdherent() + "'" +
-                    ", '" + reservation.getDate() + "'" +
+                    ", '" + dateString + "'" +
                     ", 'confirmee')";
 
             unDialogueBd.insertionBD(mysql);
         } catch (MonException e) {
             throw e;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
