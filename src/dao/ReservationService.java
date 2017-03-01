@@ -54,7 +54,7 @@ public class ReservationService {
 
                 reservation.setOeuvreVente(o);
 
-                index = index + 15;
+                index = index + 16;
                 mesReservations.add(reservation);
             }
 
