@@ -1,35 +1,65 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Expo : Médiathèque De POLYTECH</title>
-</head>
+<jsp:include page="part/header.jsp" />
+<jsp:include page="part/nav.jsp" />
+<section class="container-fluid">
+	<div class="card text-center mt-3">
+		<div class="card-header">
+			TP : Gestion des oeuvres
+		</div>
+		<div class="card-block">
+			<h4 class="card-title">Bienvenue</h4>
+			<div class="card-text">
+				<p>
+					Voici le client du travaux pratiques : Oeuvres.
+				<p>
+				<p>
+					Il s'agit d'un client développé avec bootstrap 4
+				</p>
+				<p>
+					Ce client est la partie front-end d'un projet avec un serveur sous J2EE.
+				</p>
+			</div>
+		</div>
+		<div class="card-footer text-muted">
+			some days ago
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col-md-3">
+			<div class="card text-center">
+				<div class="card-block">
+					<h4 class="card-title">Gestion des adhérents</h4>
+					<a href="/AdherentController?action=listerAdherent" class="btn btn-primary">Voir la liste</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="card text-center">
+				<div class="card-block">
+					<h4 class="card-title">Gestion des proprietaires</h4>
+					<a href="/ProprietaireController?action=listerProprietaire" class="btn btn-primary">Voir la liste</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="card text-center">
+				<div class="card-block">
+					<h4 class="card-title">Gestion des Vente d'oeuvre</h4>
+					<a href="/OeuvreController?action=listerOeuvreVente" class="btn btn-primary">Voir la liste</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="card text-center">
+				<div class="card-block">
+					<h4 class="card-title">Gestion des réservations</h4>
+					<a href="/ReservationController?action=listerReservation" class="btn btn-primary">Voir la liste</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-<body>
-	<p align="center"></p>
-	<p align="center">
-		Médiathèque de POLYTECH
-	</p>
-	<p align="center">
-		Gestion de l'exposition 2016
-	</p>
-	<p align="left">
-		Sélectionnez la fonctionnalité voulue:
-	</p>
-	<ul>
-		<li><a href="AdherentController?action=ajouterAdherent">Ajout Adhérent</a></li>
-		<li><a href="AdherentController?action=listerAdherent">lister les adhérents</a></li>
-
-		<li><a href="ProprietaireController?action=listerProprietaire">lister les propriétaires</a></li>
-
-		<li><a href="OeuvreController?action=listerOeuvreVente">lister les oeuvres vente</a></li>
-		<li><a href="OeuvreController?action=ajouterOeuvreVente">Ajouter une oeuvre vente</a></li>
-
-		<li><a href="ReservationController?action=listerReservation">lister les réservations</a></li>
-		<li><a href="ReservationController?action=ajouterReservation">Ajouter une réservation</a></li>
-	</ul>
-</body>
-</html>
+<jsp:include page="part/footer.jsp" />
