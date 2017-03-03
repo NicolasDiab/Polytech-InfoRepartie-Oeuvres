@@ -42,6 +42,8 @@ public class AdherentController extends HttpServlet {
         processusTraiteRequete(request, response);
     }
 
+
+
     protected void processusTraiteRequete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String actionName = request.getParameter(ACTION_TYPE);
