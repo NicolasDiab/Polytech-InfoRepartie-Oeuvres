@@ -24,7 +24,7 @@ public class TestController extends BaseController {
         // param 1 : nom de l'action dans l'url
         // param 2 : nom de la methode (Action à la fin n'est pas obligatoire, c'est juste un style symfony)
         this.get("list","listAction");
-        // ... post, delete, put
+        // ... this.post(url,method), delete, put
         // Si vous ajoutez une route avec methode inexistante une erreur sera écrite dans la console et une page 404 sera renvoyé au client
 
     }
