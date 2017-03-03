@@ -2,6 +2,7 @@ package controle;
 
 import dao.ProprietaireService;
 import meserreurs.MonException;
+import metier.Proprietaire;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -59,6 +60,53 @@ public class ProprietaireController extends HttpServlet{
                 e.printStackTrace();
             }
             destinationPage = "/listerProprietaire.jsp";
+        }
+        else if (AJOUTER_PROPRIETAIRE.equals(actionName)) {
+            destinationPage = "/ajouterProprietaire.jsp";
+        }
+        else if (INSERER_PROPRIETAIRE.equals(actionName)) {
+            try {
+                Proprietaire unProprietaire = new Proprietaire();
+                unProprietaire.setNomProprietaire(request.getParameter("txtnom"));
+                unProprietaire.setPrenomProprietaire(request.getParameter("txtprenom"));
+                ProprietaireService proprietaireService = new ProprietaireService();
+                proprietaireService.insertProprietaire(unProprietaire);
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            destinationPage = "/index.jsp";
+        }
+        else if (MODIFIER_PAGE_PROPRIETAIRE.equals(actionName)) {
+            int proprietaireNum = Integer.parseInt(request.getParameter("proprietaireNum"));
+
+            ProprietaireService svc = new ProprietaireService();
+            try {
+                request.setAttribute("proprietaire", svc.obtenirProprietaire(proprietaireNum));
+            } catch (MonException e) {
+                e.printStackTrace();
+            }
+
+            destinationPage = "/modifierProprietaire.jsp";
+        }
+        else if (MODIFIER_ACTION_PROPRIETAIRE.equals(actionName)) {
+            try {
+                Proprietaire proprietaire = new Proprietaire();
+                proprietaire.setIdProprietaire(Integer.parseInt(request.getParameter("txtId")));
+                proprietaire.setNomProprietaire(request.getParameter("txtNom"));
+
+                System.out.println("Parameter -- " + request.getParameter("txtId"));
+                System.out.println("Parameter -- " + request.getParameter("txtPrenom"));
+                System.out.println("Parameter -- " + request.getParameter("txtNom"));
+
+                proprietaire.setPrenomProprietaire(request.getParameter("txtPrenom"));
+                ProprietaireService proprietaireService = new ProprietaireService();
+                proprietaireService.modifierProprietaire(proprietaire);
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            destinationPage = "/index.jsp";
         }
         else {
             String messageErreur = "[" + actionName + "] n'est pas une action valide.";
