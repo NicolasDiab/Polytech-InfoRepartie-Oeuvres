@@ -84,4 +84,26 @@ public class ReservationService {
             e.printStackTrace();
         }
     }
+
+    public Reservation obtenirReservation(int oeuvreVenteId, int adherentId) throws MonException {
+        String mysql = "select * reservation r " +
+                "join adherent a on r.id_adherent = a.id_adherent " +
+                "join oeuvrevente o on r.id_oeuvrevente = o.id_oeuvrevente " +
+                "join proprietaire p on o.id_proprietaire = p.id_proprietaire" +
+                "where id_adherent=" + adherentId + " and id_oeuvrevente=" + oeuvreVenteId;
+        List<Reservation> list = consulterListeReservations(mysql);
+        if (list.isEmpty())
+            return null;
+        else {
+            return list.get(0);
+        }
+    }
+
+    /*public void modifierReservation(Reservation reservation) throws MonException {
+        String mysql = "update reservation set id_adherent='" + reservation.getAdherent().getIdAdherent() + "', " +
+                "id_oeuvrevente='" + reservation.getOeuvreVente().getIdOeuvrevente() + "', date_reservation='"+ reservation.getVilleAdherent()
+                +"' where id_adherent=" + reservation.getIdAdherent();
+        DialogueBd dialogueBd = DialogueBd.getInstance();
+        dialogueBd.execute(mysql);
+    }*/
 }

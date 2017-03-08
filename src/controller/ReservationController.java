@@ -26,6 +26,8 @@ public class ReservationController extends HttpServlet {
     private static final String LISTER_RESERVATIONS = "listerReservation";
     private static final String AJOUTER_RESERVATION = "ajouterReservation";
     private static final String INSERER_RESERVATION = "insererReservation";
+    private static final String MODIFIER_PAGE_RESERVATION = "modifierPageReservation";
+    private static final String MODIFIER_ACTION_RESERVATION = "modifierActionReservation";
     private static final String ERROR_KEY = "messageErreur";
     private static final String ERROR_PAGE = "/erreur.jsp";
 
@@ -99,6 +101,44 @@ public class ReservationController extends HttpServlet {
                 // ajout effectif
                 ReservationService reservationService = new ReservationService();
                 reservationService.insertReservation(reservation);
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            destinationPage = "/index.jsp";
+        }
+        else if (MODIFIER_PAGE_RESERVATION.equals(actionName)) {
+            int adherentNum = Integer.parseInt(request.getParameter("adherentNum"));
+            int oeuvreVenteNum = Integer.parseInt(request.getParameter("oeuvreVenteNum"));
+
+            ReservationService svc = new ReservationService();
+            try {
+                request.setAttribute("adherent", svc.obtenirReservation(oeuvreVenteNum, adherentNum));
+            } catch (MonException e) {
+                e.printStackTrace();
+            }
+
+            destinationPage = "/modifierReservation.jsp";
+        }
+        else if (MODIFIER_ACTION_RESERVATION.equals(actionName)) {
+            try {
+                Reservation reservation = new Reservation();
+
+                // Récupération de l'adhérent et de l'oeuvre vente
+                AdherentService svcAdherent = new AdherentService();
+                OeuvreService svcOeuvre = new OeuvreService();
+
+                reservation.setAdherent(svcAdherent.obtenirAdherent(Integer.parseInt(request.getParameter("adherentNum"))));
+                reservation.setOeuvreVente(svcOeuvre.obtenirOeuvreVente(Integer.parseInt(request.getParameter("oeuvreVenteNum"))));
+
+                // Remplissage des autres infos (modifiées)
+                Date d = FonctionsUtiles.conversionChaineenDate(request.getParameter("date"));
+                reservation.setDate(d);
+
+                ReservationService svcReservation = new ReservationService();
+                //svcReservation.modifierReservation(reservation);
             } catch (MonException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
