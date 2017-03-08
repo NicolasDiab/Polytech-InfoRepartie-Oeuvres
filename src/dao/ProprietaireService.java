@@ -50,4 +50,27 @@ public class ProprietaireService {
             throw new MonException(exc.getMessage(), "systeme");
         }
     }
+
+    public void insertProprietaire(Proprietaire unProprietaire) throws MonException {
+        String mysql;
+
+        DialogueBd unDialogueBd = DialogueBd.getInstance();
+        try {
+            mysql = "insert into proprietaire  (nom_proprietaire,prenom_proprietaire)  " + "values ('"
+                    + unProprietaire.getNomProprietaire();
+            mysql += "'" + ",'" + unProprietaire.getPrenomProprietaire() + "')";
+
+            unDialogueBd.insertionBD(mysql);
+        } catch (MonException e) {
+            throw e;
+        }
+    }
+
+
+    public void modifierProprietaire(Proprietaire proprietaire) throws MonException {
+        String mysql = "update proprietaire set nom_proprietaire='" + proprietaire.getNomProprietaire() + "', " +
+                "prenom_proprietaire='" + proprietaire.getPrenomProprietaire() + "' where id_proprietaire=" + proprietaire.getIdProprietaire();
+        DialogueBd dialogueBd = DialogueBd.getInstance();
+        dialogueBd.execute(mysql);
+    }
 }

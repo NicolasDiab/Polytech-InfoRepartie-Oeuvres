@@ -31,7 +31,7 @@
 			<div class="card text-center">
 				<div class="card-block">
 					<h4 class="card-title">Gestion des adhérents</h4>
-					<a href="/AdherentController?action=listerAdherent" class="btn btn-primary">Voir la liste</a>
+					<a href="AdherentController?action=listerAdherent" class="btn btn-primary">Voir la liste</a>
 				</div>
 			</div>
 		</div>
@@ -39,7 +39,7 @@
 			<div class="card text-center">
 				<div class="card-block">
 					<h4 class="card-title">Gestion des proprietaires</h4>
-					<a href="/ProprietaireController?action=listerProprietaire" class="btn btn-primary">Voir la liste</a>
+					<a href="ProprietaireController?action=listerProprietaire" class="btn btn-primary">Voir la liste</a>
 				</div>
 			</div>
 		</div>
@@ -47,7 +47,7 @@
 			<div class="card text-center">
 				<div class="card-block">
 					<h4 class="card-title">Gestion des Vente d'oeuvre</h4>
-					<a href="/OeuvreController?action=listerOeuvreVente" class="btn btn-primary">Voir la liste</a>
+					<a href="OeuvreController?action=listerOeuvreVente" class="btn btn-primary">Voir la liste</a>
 				</div>
 			</div>
 		</div>
@@ -55,7 +55,15 @@
 			<div class="card text-center">
 				<div class="card-block">
 					<h4 class="card-title">Gestion des réservations</h4>
-					<a href="/ReservationController?action=listerReservation" class="btn btn-primary">Voir la liste</a>
+					<a href="ReservationController?action=listerReservation" class="btn btn-primary">Voir la liste</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="card text-center">
+				<div class="card-block">
+					<h4 class="card-title">Test de base controller</h4>
+					<a href="TestController?action=list" class="btn btn-primary">Voir la liste</a>
 				</div>
 			</div>
 		</div>
