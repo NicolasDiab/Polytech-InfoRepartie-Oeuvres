@@ -1,5 +1,7 @@
 package metier;
 
+import utils.FonctionsUtiles;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,6 +14,8 @@ public class Reservation implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Date date;
+	private String dateString;
+	private String statut;
 	private Adherent adherent;
 	private OeuvreVente oeuvreVente;
 
@@ -20,9 +24,15 @@ public class Reservation implements Serializable {
 
 
 
-	public Reservation(Date date, Adherent adherent, OeuvreVente oeuvreVente) {
+	public Reservation(Date date, String statut, Adherent adherent, OeuvreVente oeuvreVente) {
 		super();
 		this.date = date;
+        try {
+            this.dateString = FonctionsUtiles.conversionDateenChaine(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.setStatut(statut);
 		this.adherent = adherent;
 		this.oeuvreVente = oeuvreVente;
 	}
@@ -34,8 +44,13 @@ public class Reservation implements Serializable {
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
-	}
+	    this.date = date;
+        try {
+            this.dateString = FonctionsUtiles.conversionDateenChaine(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 	public Adherent getAdherent() {
 		return this.adherent;
@@ -53,4 +68,11 @@ public class Reservation implements Serializable {
 		this.oeuvreVente = oeuvreVente;
 	}
 
+	public String getStatut() {
+		return statut;
+	}
+
+	public void setStatut(String statut) {
+		this.statut = statut;
+	}
 }

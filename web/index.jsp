@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<div class="card-footer text-muted">
-			some days ago
+			Rubriques principales
 		</div>
 	</div>
 	<div class="row mt-3">

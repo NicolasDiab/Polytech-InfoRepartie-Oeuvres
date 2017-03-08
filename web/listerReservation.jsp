@@ -15,6 +15,8 @@
         <th>Oeuvre</th>
         <th>Adhérent</th>
         <th>Date</th>
+        <th>Statut</th>
+        <th>Modifier</th>
     </tr>
     </thead>
     <tbody>
@@ -35,6 +37,11 @@
                     ${item.adherent.villeAdherent}
             </td>
             <td>${item.date}</td>
+            <td>${item.statut}</td>
+            <td>
+                <a href="ReservationController?action=modifierPageReservation&adherentNum=${item.adherent.idAdherent}&oeuvreVenteNum=${item.oeuvreVente.idOeuvrevente}"><font
+                        face="Arial">Modifier</font></a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>

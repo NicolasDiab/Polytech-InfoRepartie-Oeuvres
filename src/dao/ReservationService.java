@@ -27,6 +27,7 @@ public class ReservationService {
 
                 Date d = FonctionsUtiles.conversionChaineenDate(rs.get(index + 2).toString());
                 reservation.setDate(d);
+                reservation.setStatut(rs.get(index + 3).toString());
 
                 // Adherent
                 Adherent a = new Adherent();
@@ -75,7 +76,7 @@ public class ReservationService {
                     "values ('"+ reservation.getOeuvreVente().getIdOeuvrevente() + "'" +
                     ", '" + reservation.getAdherent().getIdAdherent() + "'" +
                     ", '" + dateString + "'" +
-                    ", 'confirmee')";
+                    ", '"+ reservation.getStatut() + "')";
 
             unDialogueBd.insertionBD(mysql);
         } catch (MonException e) {
@@ -86,11 +87,11 @@ public class ReservationService {
     }
 
     public Reservation obtenirReservation(int oeuvreVenteId, int adherentId) throws MonException {
-        String mysql = "select * reservation r " +
+        String mysql = "select * from reservation r " +
                 "join adherent a on r.id_adherent = a.id_adherent " +
                 "join oeuvrevente o on r.id_oeuvrevente = o.id_oeuvrevente " +
-                "join proprietaire p on o.id_proprietaire = p.id_proprietaire" +
-                "where id_adherent=" + adherentId + " and id_oeuvrevente=" + oeuvreVenteId;
+                "join proprietaire p on o.id_proprietaire = p.id_proprietaire " +
+                "where r.id_adherent=" + adherentId + " and r.id_oeuvrevente=" + oeuvreVenteId;
         List<Reservation> list = consulterListeReservations(mysql);
         if (list.isEmpty())
             return null;
@@ -99,11 +100,18 @@ public class ReservationService {
         }
     }
 
-    /*public void modifierReservation(Reservation reservation) throws MonException {
-        String mysql = "update reservation set id_adherent='" + reservation.getAdherent().getIdAdherent() + "', " +
-                "id_oeuvrevente='" + reservation.getOeuvreVente().getIdOeuvrevente() + "', date_reservation='"+ reservation.getVilleAdherent()
-                +"' where id_adherent=" + reservation.getIdAdherent();
-        DialogueBd dialogueBd = DialogueBd.getInstance();
-        dialogueBd.execute(mysql);
-    }*/
+    public void modifierReservation(Reservation reservation) throws MonException {
+        try {
+            String mysql = "update reservation set " +
+                    "date_reservation='"+ FonctionsUtiles.conversionDateenChaine(reservation.getDate()) + "," +
+                    "statut=" + reservation.getStatut() +
+                    "' where id_adherent=" + reservation.getAdherent().getIdAdherent() + "," +
+                    "and id_oeuvrevente='" + reservation.getOeuvreVente().getIdOeuvrevente();
+            DialogueBd dialogueBd = DialogueBd.getInstance();
+            dialogueBd.execute(mysql);
+        }
+        catch(Exception e) {
+            System.err.println(e);
+        }
+    }
 }
