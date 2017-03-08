@@ -1,19 +1,14 @@
-package controle;
+package controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.OeuvreService;
-import dao.ProprietaireService;
-import meserreurs.*;
-import metier.OeuvreVente;
-import metier.Proprietaire;
+import exceptions.*;
 
 @WebServlet("/TestController")
 public class TestController extends BaseController {

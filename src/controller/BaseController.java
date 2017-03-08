@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 
 import javax.servlet.RequestDispatcher;

@@ -1,7 +1,7 @@
-package controle;
+package controller;
 
 import dao.ProprietaireService;
-import meserreurs.MonException;
+import exceptions.MonException;
 import metier.Proprietaire;
 
 import javax.servlet.RequestDispatcher;
