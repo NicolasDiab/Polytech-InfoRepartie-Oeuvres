@@ -1,10 +1,10 @@
 package dao;
 
-import meserreurs.MonException;
+import exceptions.MonException;
 import java.util.*;
 
 import metier.*;
-import persistance.*;
+import repositories.*;
 
 public class AdherentService {
     public void insertAdherent(Adherent unAdherent) throws MonException {

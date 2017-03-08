@@ -1,4 +1,4 @@
-package meserreurs;
+package exceptions;
 
 public class MonException  extends Exception  {
     private String message;

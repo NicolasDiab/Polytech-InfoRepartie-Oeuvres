@@ -1,9 +1,8 @@
 package dao;
 
-import meserreurs.MonException;
-import metier.Adherent;
+import exceptions.MonException;
 import metier.Proprietaire;
-import persistance.DialogueBd;
+import repositories.DialogueBd;
 
 import java.util.ArrayList;
 import java.util.List;

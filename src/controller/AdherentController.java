@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.AdherentService;
 import metier.*;
-import meserreurs.*;
+import exceptions.*;
 
 @WebServlet("/AdherentController")
 public class AdherentController extends HttpServlet {

@@ -1,10 +1,10 @@
-package persistance;
+package repositories;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import meserreurs.MonException;
+import exceptions.MonException;
 
 import java.sql.Connection;
 import java.sql.SQLException;

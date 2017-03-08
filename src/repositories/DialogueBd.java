@@ -1,8 +1,8 @@
-package persistance;
+package repositories;
 
 import java.sql.*;
 import java.util.*;
-import meserreurs.*;
+import exceptions.*;
 
 public class DialogueBd {
 

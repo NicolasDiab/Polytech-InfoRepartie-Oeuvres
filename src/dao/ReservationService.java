@@ -1,11 +1,11 @@
 package dao;
 
-import meserreurs.MonException;
+import exceptions.MonException;
 import java.util.*;
 
 import metier.*;
-import persistance.*;
-import utilitaires.FonctionsUtiles;
+import repositories.*;
+import utils.FonctionsUtiles;
 
 public class ReservationService {
     public List<Reservation> consulterListeReservations() throws MonException {

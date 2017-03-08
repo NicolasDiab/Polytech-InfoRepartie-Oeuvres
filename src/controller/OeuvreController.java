@@ -1,4 +1,4 @@
-package controle;
+package controller;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.OeuvreService;
 import dao.ProprietaireService;
-import meserreurs.*;
+import exceptions.*;
 import metier.OeuvreVente;
 import metier.Proprietaire;
 
