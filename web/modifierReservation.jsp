@@ -11,8 +11,6 @@
         <label for="date">Date </label>
         <input type="date" name="date" class="form-control" value="${reservation.dateString}" id="date" placeholder="Entrer la date de réservation">
     </div>
-    ${reservation.date}
-    ${reservation.dateString}
     <div class="form-group">
         <label for="statut">Statut </label>
         <input type="text" name="statut" class="form-control" value="${reservation.statut}" id="statut" placeholder="Entrer le statut de la réservation">
@@ -28,8 +26,8 @@
         </div>
     </div>
 
-    <input type="hidden" name="oeuvreVenteNum" value="${reservation.adherent.idAdherent}">
-    <input type="hidden" name="adherentNum" value="${reservation.oeuvreVente.idOeuvrevente}">
+    <input type="hidden" name="oeuvreVenteNum" id="oeuvreVenteNum" value="${reservation.adherent.idAdherent}">
+    <input type="hidden" name="adherentNum" id="adherentNum" value="${reservation.oeuvreVente.idOeuvrevente}">
 
     <button type="submit" class="btn btn-primary">Valider</button>
 </form>

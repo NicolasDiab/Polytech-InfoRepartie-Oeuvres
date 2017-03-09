@@ -115,7 +115,8 @@ public class ReservationController extends HttpServlet {
 
             ReservationService svc = new ReservationService();
             try {
-                request.setAttribute("reservation", svc.obtenirReservation(oeuvreVenteNum, adherentNum));
+                Reservation r = svc.obtenirReservation(oeuvreVenteNum, adherentNum);
+                request.setAttribute("reservation", r);
             } catch (MonException e) {
                 e.printStackTrace();
             }
@@ -130,8 +131,11 @@ public class ReservationController extends HttpServlet {
                 AdherentService svcAdherent = new AdherentService();
                 OeuvreService svcOeuvre = new OeuvreService();
 
-                reservation.setAdherent(svcAdherent.obtenirAdherent(Integer.parseInt(request.getParameter("adherentNum"))));
-                reservation.setOeuvreVente(svcOeuvre.obtenirOeuvreVente(Integer.parseInt(request.getParameter("oeuvreVenteNum"))));
+                int aNum = Integer.parseInt(request.getParameter("adherentNum"));
+                Adherent a = svcAdherent.obtenirAdherent(aNum);
+                reservation.setAdherent(a);
+                OeuvreVente ov = svcOeuvre.obtenirOeuvreVente(Integer.parseInt(request.getParameter("oeuvreVenteNum")));
+                reservation.setOeuvreVente(ov);
 
                 // Remplissage des autres infos (modifiées)
                 Date d = FonctionsUtiles.conversionChaineenDate(request.getParameter("date"));

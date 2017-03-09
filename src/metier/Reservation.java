@@ -43,6 +43,11 @@ public class Reservation implements Serializable {
 		return this.date;
 	}
 
+	public String getDateString() {
+		return this.dateString;
+	}
+
+
 	public void setDate(Date date) {
 	    this.date = date;
         try {
