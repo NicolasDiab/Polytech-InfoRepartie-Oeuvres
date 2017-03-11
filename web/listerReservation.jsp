@@ -39,8 +39,9 @@
             <td>${item.date}</td>
             <td>${item.statut}</td>
             <td>
-                <a href="ReservationController?action=modifierPageReservation&adherentNum=${item.adherent.idAdherent}&oeuvreVenteNum=${item.oeuvreVente.idOeuvrevente}"><font
-                        face="Arial">Modifier</font></a>
+                <a href="ReservationController?action=modifierPageReservation&adherentNum=${item.adherent.idAdherent}&oeuvreVenteNum=${item.oeuvreVente.idOeuvrevente}"><i class="glyphicon glyphicon-edit"></i>Modifier</a>
+
+                <a href="ReservationController?action=supprimerReservation&adherentNum=${item.adherent.idAdherent}&oeuvreVenteNum=${item.oeuvreVente.idOeuvrevente}"><i class="glyphicon glyphicon-trash"></i>Supprimer</a>
             </td>
         </tr>
     </c:forEach>

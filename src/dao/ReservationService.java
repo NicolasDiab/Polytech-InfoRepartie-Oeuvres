@@ -114,4 +114,17 @@ public class ReservationService {
             System.err.println(e);
         }
     }
+
+    public void supprimerReservation(Reservation reservation) throws MonException {
+        try {
+            String mysql = "delete from reservation " +
+                    "where id_adherent='" + reservation.getAdherent().getIdAdherent() + "' " +
+                    "and id_oeuvrevente='" + reservation.getOeuvreVente().getIdOeuvrevente() +"'";
+            DialogueBd dialogueBd = DialogueBd.getInstance();
+            dialogueBd.execute(mysql);
+        }
+        catch(Exception e) {
+            System.err.println(e);
+        }
+    }
 }

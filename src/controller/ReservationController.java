@@ -28,6 +28,7 @@ public class ReservationController extends HttpServlet {
     private static final String INSERER_RESERVATION = "insererReservation";
     private static final String MODIFIER_PAGE_RESERVATION = "modifierPageReservation";
     private static final String MODIFIER_ACTION_RESERVATION = "modifierActionReservation";
+    private static final String SUPPRIMER_RESERVATION = "supprimerReservation";
     private static final String ERROR_KEY = "messageErreur";
     private static final String ERROR_PAGE = "/erreur.jsp";
 
@@ -63,8 +64,7 @@ public class ReservationController extends HttpServlet {
                 e.printStackTrace();
             }
             destinationPage = "/listerReservation.jsp";
-        }
-        else if (AJOUTER_RESERVATION.equals(actionName)) {
+        } else if (AJOUTER_RESERVATION.equals(actionName)) {
             // Récupère la liste des adhérents et des oeuvres (pour les clés étrangères)
             try {
                 AdherentService adherentService = new AdherentService();
@@ -77,8 +77,7 @@ public class ReservationController extends HttpServlet {
                 e.printStackTrace();
             }
             destinationPage = "/ajouterReservation.jsp";
-        }
-        else if (INSERER_RESERVATION.equals(actionName)) {
+        } else if (INSERER_RESERVATION.equals(actionName)) {
             try {
                 Reservation reservation = new Reservation();
 
@@ -108,8 +107,7 @@ public class ReservationController extends HttpServlet {
                 e.printStackTrace();
             }
             destinationPage = "/index.jsp";
-        }
-        else if (MODIFIER_PAGE_RESERVATION.equals(actionName)) {
+        } else if (MODIFIER_PAGE_RESERVATION.equals(actionName)) {
             int adherentNum = Integer.parseInt(request.getParameter("adherentNum"));
             int oeuvreVenteNum = Integer.parseInt(request.getParameter("oeuvreVenteNum"));
 
@@ -122,6 +120,21 @@ public class ReservationController extends HttpServlet {
             }
 
             destinationPage = "/modifierReservation.jsp";
+        } else if (SUPPRIMER_RESERVATION.equals(actionName)) {
+            try {
+                ReservationService svcReservation = new ReservationService();
+                Reservation r = svcReservation.obtenirReservation(
+                        Integer.parseInt(request.getParameter("oeuvreVenteNum")),
+                        Integer.parseInt(request.getParameter("adherentNum"))
+                );
+                svcReservation.supprimerReservation(r);
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            destinationPage = "/index.jsp";
         }
         else if (MODIFIER_ACTION_RESERVATION.equals(actionName)) {
             try {
