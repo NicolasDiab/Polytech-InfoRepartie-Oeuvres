@@ -70,4 +70,10 @@ public class AdherentService {
             throw new MonException(exc.getMessage(), "systeme");
         }
     }
+
+    public void supprimerAdherent(int numero) throws MonException {
+        String mysql = "delete from adherent where id_adherent=" + numero;
+        DialogueBd dialogueBd = DialogueBd.getInstance();
+        dialogueBd.execute(mysql);
+    }
 }

@@ -27,8 +27,8 @@
             <td>${item.prenomAdherent}</td>
             <td>${item.villeAdherent}</td>
             <td>
-                <a href="AdherentController?action=modifierPageAdherent&adherentNum=${item.idAdherent}"><font
-                        face="Arial">Modifier</font></a>
+                <a href="AdherentController?action=modifierPageAdherent&adherentNum=${item.idAdherent}">Modifier</a>
+                <a href="AdherentController?action=supprimerAdherent&adherentNum=${item.idAdherent}">Suppimer</a>
             </td>
         </tr>
     </c:forEach>

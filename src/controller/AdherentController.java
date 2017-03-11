@@ -22,6 +22,7 @@ public class AdherentController extends HttpServlet {
     private static final String INSERER_ADHERENT = "insererAdherent";
     private static final String MODIFIER_PAGE_ADHERENT = "modifierPageAdherent";
     private static final String MODIFIER_ACTION_ADHERENT = "modifierActionAdherent";
+    private static final String SUPPRIMER_ADHERENT = "supprimerAdherent";
     private static final String ERROR_KEY = "messageErreur";
     private static final String ERROR_PAGE = "/erreur.jsp";
 
@@ -55,11 +56,9 @@ public class AdherentController extends HttpServlet {
                 e.printStackTrace();
             }
             destinationPage = "/listerAdherent.jsp";
-        }
-        else if (AJOUTER_ADHERENT.equals(actionName)) {
+        } else if (AJOUTER_ADHERENT.equals(actionName)) {
             destinationPage = "/ajouterAdherent.jsp";
-        }
-        else if (INSERER_ADHERENT.equals(actionName)) {
+        } else if (INSERER_ADHERENT.equals(actionName)) {
             try {
                 Adherent unAdherent = new Adherent();
                 unAdherent.setNomAdherent(request.getParameter("txtnom"));
@@ -72,8 +71,7 @@ public class AdherentController extends HttpServlet {
                 e.printStackTrace();
             }
             destinationPage = "/index.jsp";
-        }
-        else if (MODIFIER_PAGE_ADHERENT.equals(actionName)) {
+        } else if (MODIFIER_PAGE_ADHERENT.equals(actionName)) {
             int adherentNum = Integer.parseInt(request.getParameter("adherentNum"));
 
             AdherentService svc = new AdherentService();
@@ -84,8 +82,7 @@ public class AdherentController extends HttpServlet {
             }
 
             destinationPage = "/modifierAdherent.jsp";
-        }
-        else if (MODIFIER_ACTION_ADHERENT.equals(actionName)) {
+        } else if (MODIFIER_ACTION_ADHERENT.equals(actionName)) {
             try {
                 Adherent adherent = new Adherent();
                 adherent.setIdAdherent(Integer.parseInt(request.getParameter("txtId")));
@@ -94,6 +91,15 @@ public class AdherentController extends HttpServlet {
                 adherent.setVilleAdherent(request.getParameter("txtVille"));
                 AdherentService adherentService = new AdherentService();
                 adherentService.modifierAdherent(adherent);
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            destinationPage = "/index.jsp";
+        } else if (SUPPRIMER_ADHERENT.equals(actionName)) {
+            try {
+                AdherentService adherentService = new AdherentService();
+                adherentService.supprimerAdherent(Integer.parseInt(request.getParameter("adherentNum")));
             } catch (MonException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
