@@ -26,8 +26,8 @@
         </div>
     </div>
 
-    <input type="hidden" name="oeuvreVenteNum" id="oeuvreVenteNum" value="${reservation.adherent.idAdherent}">
-    <input type="hidden" name="adherentNum" id="adherentNum" value="${reservation.oeuvreVente.idOeuvrevente}">
+    <input type="hidden" name="adherentNum" id="oeuvreVenteNum" value="${reservation.adherent.idAdherent}">
+    <input type="hidden" name="oeuvreVenteNum" id="adherentNum" value="${reservation.oeuvreVente.idOeuvrevente}">
 
     <button type="submit" class="btn btn-primary">Valider</button>
 </form>

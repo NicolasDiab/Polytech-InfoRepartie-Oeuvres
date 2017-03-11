@@ -103,10 +103,10 @@ public class ReservationService {
     public void modifierReservation(Reservation reservation) throws MonException {
         try {
             String mysql = "update reservation set " +
-                    "date_reservation='"+ FonctionsUtiles.conversionDateenChaine(reservation.getDate()) + "," +
-                    "statut=" + reservation.getStatut() +
-                    "' where id_adherent=" + reservation.getAdherent().getIdAdherent() + "," +
-                    "and id_oeuvrevente='" + reservation.getOeuvreVente().getIdOeuvrevente();
+                    "date_reservation='"+ FonctionsUtiles.conversionDateenChaine(reservation.getDate()) + "'," +
+                    "statut='" + reservation.getStatut() +
+                    "' where id_adherent='" + reservation.getAdherent().getIdAdherent() + "' " +
+                    "and id_oeuvrevente='" + reservation.getOeuvreVente().getIdOeuvrevente() +"'";
             DialogueBd dialogueBd = DialogueBd.getInstance();
             dialogueBd.execute(mysql);
         }
