@@ -6,7 +6,7 @@
 <jsp:include page="part/nav.jsp"/>
 <h1 class="text-center"> Ajout d'une oeuvre vente </h1>
 
-<form name='identification' method="post" action="OeuvreController?action=insererOeuvreVente">
+<form name='identification' method="post" action="OeuvreController?action=add">
     <div class="form-group">
         <label for="titre">Titre de l'oeuvre </label>
         <input type="text" name="titre" class="form-control" value="" id="titre"

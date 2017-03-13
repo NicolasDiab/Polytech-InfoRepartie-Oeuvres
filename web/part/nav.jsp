@@ -20,7 +20,7 @@
                     <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/OeuvreController?action=listerOeuvreVente">Liste d'oeuvre <span
+                <a class="nav-link" href="/OeuvreController?action=list">Liste d'oeuvre <span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">

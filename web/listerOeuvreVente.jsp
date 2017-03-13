@@ -33,7 +33,7 @@
     </c:forEach>
     </tbody>
 </table>
-<a href="/OeuvreController?action=ajouterOeuvreVente" class="btn btn-danger">Ajouter Oeuvre</a>
+<a href="OeuvreController?action=add" class="btn btn-danger">Ajouter Oeuvre</a>
 
 <a href="/" class="btn btn-primary">Retour à l'accueil</a>
 

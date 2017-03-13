@@ -58,9 +58,9 @@ public abstract class BaseController extends HttpServlet {
     private void requestHandle(METHOD method, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         String actionName = req.getParameter(ACTION_TYPE);
         Object[] objects = new Object[]{req, resp};
-        if (this.routes.get(METHOD.GET).containsKey(actionName)) {
+        if (this.routes.get(method).containsKey(actionName)) {
             try {
-                this.call(objects, this.routes.get(METHOD.GET).get(actionName));
+                this.call(objects, this.routes.get(method).get(actionName));
             } catch (Exception e) {
                 System.out.println("ERROR - REQUEST HANDLE - " + method + " : " + actionName + " method unknown");
                 this.notFound(req,resp);

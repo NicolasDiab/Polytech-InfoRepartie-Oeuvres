@@ -16,85 +16,79 @@ import metier.OeuvreVente;
 import metier.Proprietaire;
 
 @WebServlet("/OeuvreController")
-public class OeuvreController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
-    private static final String ACTION_TYPE = "action";
-    private static final String LISTER_OEUVRE_VENTE = "listerOeuvreVente";
-    private static final String AJOUTER_OEUVRE_VENTE = "ajouterOeuvreVente";
-    private static final String INSERER_OEUVRE_VENTE = "insererOeuvreVente";
-    private static final String ERROR_KEY = "messageErreur";
-    private static final String ERROR_PAGE = "/erreur.jsp";
+public class OeuvreController extends BaseController {
 
     public OeuvreController() {
         super();
+        this.get("list", "listAction");
+        this.get("add", "addAction");
+        this.post("add", "postAddAction");
+        this.get("update", "updateAction");
+        this.post("update", "postUpdateAction");
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processusTraiteRequete(request, response);
+    public void listAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            OeuvreService oeuvreService = new OeuvreService();
+            request.setAttribute("mesOeuvresVente", oeuvreService.consulterListeOeuvresVente());
+        } catch (MonException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        this.render("/listerOeuvreVente.jsp", request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processusTraiteRequete(request, response);
+    public void addAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Récupère la liste des propriétaires (pour la clé étrangère)
+        try {
+            ProprietaireService proprietaireService = new ProprietaireService();
+            request.setAttribute("mesProprietaires", proprietaireService.consulterListeProprietaires());
+        } catch (MonException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        this.render("/ajouterOeuvreVente.jsp", request, response);
     }
 
-    protected void processusTraiteRequete(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String actionName = request.getParameter(ACTION_TYPE);
-        String destinationPage = ERROR_PAGE;
-        // execute l'action
+    public void postAddAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Récupère la liste des propriétaires (pour la clé étrangère)
+        try {
+            OeuvreVente oeuvreVente = new OeuvreVente();
+            oeuvreVente.setTitreOeuvrevente(request.getParameter("titre"));
+            oeuvreVente.setPrixOeuvrevente(Float.parseFloat(request.getParameter("prix")));
 
-        if (LISTER_OEUVRE_VENTE.equals(actionName)) {
-            try {
-                OeuvreService oeuvreService = new OeuvreService();
-                request.setAttribute("mesOeuvresVente", oeuvreService.consulterListeOeuvresVente());
-            } catch (MonException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            destinationPage = "/listerOeuvreVente.jsp";
+            // récupération du propriétaire
+            int propNum = Integer.parseInt(request.getParameter("proprietaireNum"));
+
+            ProprietaireService proprietaireService = new ProprietaireService();
+            Proprietaire p = proprietaireService.obtenirProprietaire(propNum);
+
+            oeuvreVente.setProprietaire(p);
+
+            // ajout effectif
+            OeuvreService oeuvreService = new OeuvreService();
+            oeuvreService.insertOeuvreVente(oeuvreVente);
+        } catch (MonException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        else if (AJOUTER_OEUVRE_VENTE.equals(actionName)) {
-            // Récupère la liste des propriétaires (pour la clé étrangère)
-            try {
-                ProprietaireService proprietaireService = new ProprietaireService();
-                request.setAttribute("mesProprietaires", proprietaireService.consulterListeProprietaires());
-            } catch (MonException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            destinationPage = "/ajouterOeuvreVente.jsp";
+        this.render("/index.jsp", request, response);
+    }
+
+    public void updateAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+
+        } catch (MonException e) {
         }
-        else if (INSERER_OEUVRE_VENTE.equals(actionName)) {
-            try {
-                OeuvreVente oeuvreVente = new OeuvreVente();
-                oeuvreVente.setTitreOeuvrevente(request.getParameter("titre"));
-                oeuvreVente.setPrixOeuvrevente(Float.parseFloat(request.getParameter("prix")));
+        this.render("/index.jsp", request, response);
+    }
 
-                // récupération du propriétaire
-                int propNum = Integer.parseInt(request.getParameter("proprietaireNum"));
+    public void postUpdateAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
 
-                ProprietaireService proprietaireService = new ProprietaireService();
-                Proprietaire p = proprietaireService.obtenirProprietaire(propNum);
-
-                oeuvreVente.setProprietaire(p);
-
-                // ajout effectif
-                OeuvreService oeuvreService = new OeuvreService();
-                oeuvreService.insertOeuvreVente(oeuvreVente);
-            } catch (MonException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            destinationPage = "/index.jsp";
+        } catch (MonException e) {
         }
-        else {
-            String messageErreur = "[" + actionName + "] n'est pas une action valide.";
-            request.setAttribute(ERROR_KEY, messageErreur);
-        }
-        // Redirection vers la page jsp appropriee
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(destinationPage);
-        dispatcher.forward(request, response);
+        this.render("/index.jsp", request, response);
+
     }
 }

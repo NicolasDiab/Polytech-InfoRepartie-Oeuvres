@@ -47,7 +47,7 @@
 			<div class="card text-center">
 				<div class="card-block">
 					<h4 class="card-title">Gestion des Vente d'oeuvre</h4>
-					<a href="OeuvreController?action=listerOeuvreVente" class="btn btn-primary">Voir la liste</a>
+					<a href="OeuvreController?action=list" class="btn btn-primary">Voir la liste</a>
 				</div>
 			</div>
 		</div>
