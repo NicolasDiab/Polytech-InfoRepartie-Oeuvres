@@ -76,10 +76,45 @@ public class OeuvreController extends BaseController {
     }
 
     public void updateAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.render("/index.jsp", request, response);
+
+        int oeuvreNum = Integer.parseInt(request.getParameter("idOeuvrevente"));
+
+        OeuvreService svc = new OeuvreService();
+        try {
+            request.setAttribute("oeuvreVente", svc.obtenirOeuvreVente(oeuvreNum));
+        } catch (MonException e) {
+            e.printStackTrace();
+        }
+        System.out.println("OOKOKOKOKOKOKO");
+        this.render("/modifierOeuvreVente.jsp", request, response);
+
     }
 
     public void postUpdateAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.render("/index.jsp", request, response);
+
+
+        OeuvreVente oeuvreVente = new OeuvreVente();
+        oeuvreVente.setTitreOeuvrevente(request.getParameter("titre"));
+        oeuvreVente.setPrixOeuvrevente(Float.parseFloat(request.getParameter("prix")));
+        oeuvreVente.setIdOeuvrevente(Integer.parseInt(request.getParameter("oeuvreVenteNum")));
+        oeuvreVente.setEtatOeuvrevente(request.getParameter("etat"));
+
+        // récupération du propriétaire
+        int propNum = Integer.parseInt(request.getParameter("proprietaireNum"));
+
+        try {
+            System.out.print("YALLAH");
+            ProprietaireService proprietaireService = new ProprietaireService();
+            Proprietaire p = proprietaireService.obtenirProprietaire(propNum);
+            oeuvreVente.setProprietaire(p);
+
+            OeuvreService svc = new OeuvreService();
+            request.setAttribute("mesOeuvresVente", svc.modifierOeuvreVente(oeuvreVente));
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        this.render("/listerOeuvreVente.jsp", request, response);
     }
 }
