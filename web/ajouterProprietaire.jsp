@@ -4,7 +4,7 @@
 <jsp:include page="part/nav.jsp"/>
 <h1 class="text-center"> Ajout d'un propriétaire</h1>
 
-<form name='identification' method="post" action="ProprietaireController?action=insererProprietaire">
+<form name='identification' method="post" action="ProprietaireController?action=add">
 
     <div class="form-group">
         <label for="nom">Nom du propriétaire </label>

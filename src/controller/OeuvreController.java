@@ -76,19 +76,10 @@ public class OeuvreController extends BaseController {
     }
 
     public void updateAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-
-        } catch (MonException e) {
-        }
         this.render("/index.jsp", request, response);
     }
 
     public void postUpdateAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-
-        } catch (MonException e) {
-        }
         this.render("/index.jsp", request, response);
-
     }
 }

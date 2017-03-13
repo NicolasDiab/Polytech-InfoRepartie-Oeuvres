@@ -5,7 +5,7 @@
 
 <h1 class="text-center"> Modifier un propriétaire</h1>
 
-<form name='identification' method="post" action="ProprietaireController?action=modifierActionProprietaire"
+<form name='identification' method="post" action="ProprietaireController?action=update"
       onsubmit="return teste()">
     <div class="form-group">
         <label for="nom">Nom du propriétaire </label>

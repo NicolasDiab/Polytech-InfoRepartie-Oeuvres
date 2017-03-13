@@ -16,7 +16,7 @@
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/ProprietaireController?action=listerProprietaire">Liste des proprietaires
+                <a class="nav-link" href="/ProprietaireController?action=list">Liste des proprietaires
                     <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">

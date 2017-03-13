@@ -39,7 +39,7 @@
 			<div class="card text-center">
 				<div class="card-block">
 					<h4 class="card-title">Gestion des proprietaires</h4>
-					<a href="ProprietaireController?action=listerProprietaire" class="btn btn-primary">Voir la liste</a>
+					<a href="ProprietaireController?action=list" class="btn btn-primary">Voir la liste</a>
 				</div>
 			</div>
 		</div>

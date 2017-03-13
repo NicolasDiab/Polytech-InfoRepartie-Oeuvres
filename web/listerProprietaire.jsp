@@ -23,15 +23,15 @@
 			<td>${item.nomProprietaire}</td>
 			<td>${item.prenomProprietaire}</td>
 			<td>
-				<a href="ProprietaireController?action=modifierPageProprietaire&proprietaireNum=${item.idProprietaire}"><font
+				<a href="ProprietaireController?action=update&proprietaireNum=${item.idProprietaire}"><font
 						face="Arial">Modifier</font></a>
-				<a href="ProprietaireController?action=supprimerProprietaire&proprietaireNum=${item.idProprietaire}">Suppimer</a>
+				<a href="ProprietaireController?action=delete&proprietaireNum=${item.idProprietaire}">Suppimer</a>
 			</td>
 		</tr>
 	</c:forEach>
 	</tbody>
 </table>
-<a href="/ProprietaireController?action=ajouterProprietaire" class="btn btn-danger">Ajouter proprietaire</a>
+<a href="/ProprietaireController?action=add" class="btn btn-danger">Ajouter proprietaire</a>
 <a href="/" class="btn btn-primary">Retour à l'accueil</a>
 
 <jsp:include page="part/footer.jsp" />
