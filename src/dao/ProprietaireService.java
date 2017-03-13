@@ -73,4 +73,10 @@ public class ProprietaireService {
         DialogueBd dialogueBd = DialogueBd.getInstance();
         dialogueBd.execute(mysql);
     }
+
+    public void supprimerProprietaire(int numero) throws MonException {
+        String mysql = "delete from proprietaire where id_proprietaire=" + numero;
+        DialogueBd dialogueBd = DialogueBd.getInstance();
+        dialogueBd.execute(mysql);
+    }
 }

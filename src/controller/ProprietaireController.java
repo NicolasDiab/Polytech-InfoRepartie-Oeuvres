@@ -24,6 +24,7 @@ public class ProprietaireController extends HttpServlet{
     private static final String LISTER_PROPRIETAIRE = "listerProprietaire";
     private static final String AJOUTER_PROPRIETAIRE = "ajouterProprietaire";
     private static final String INSERER_PROPRIETAIRE = "insererProprietaire";
+    private static final String SUPPRIMER_PROPRIETAIRE = "supprimerProprietaire";
     private static final String MODIFIER_PAGE_PROPRIETAIRE = "modifierPageProprietaire";
     private static final String MODIFIER_ACTION_PROPRIETAIRE = "modifierActionProprietaire";
     private static final String ERROR_KEY = "messageErreur";
@@ -99,6 +100,16 @@ public class ProprietaireController extends HttpServlet{
                 proprietaire.setPrenomProprietaire(request.getParameter("txtPrenom"));
                 ProprietaireService proprietaireService = new ProprietaireService();
                 proprietaireService.modifierProprietaire(proprietaire);
+            } catch (MonException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            destinationPage = "/index.jsp";
+        }
+        else if (SUPPRIMER_PROPRIETAIRE.equals(actionName)) {
+            try {
+                ProprietaireService proprietaireService = new ProprietaireService();
+                proprietaireService.supprimerProprietaire(Integer.parseInt(request.getParameter("proprietaireNum")));
             } catch (MonException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

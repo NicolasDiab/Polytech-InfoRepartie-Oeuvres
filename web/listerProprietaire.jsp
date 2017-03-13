@@ -25,6 +25,7 @@
 			<td>
 				<a href="ProprietaireController?action=modifierPageProprietaire&proprietaireNum=${item.idProprietaire}"><font
 						face="Arial">Modifier</font></a>
+				<a href="ProprietaireController?action=supprimerProprietaire&proprietaireNum=${item.idProprietaire}">Suppimer</a>
 			</td>
 		</tr>
 	</c:forEach>
