@@ -25,6 +25,8 @@ public class OeuvreController extends BaseController {
         this.post("add", "postAddAction");
         this.get("update", "updateAction");
         this.post("update", "postUpdateAction");
+        this.get("delete", "deleteAction");
+
     }
 
     public void listAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -92,7 +94,6 @@ public class OeuvreController extends BaseController {
 
     public void postUpdateAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         OeuvreVente oeuvreVente = new OeuvreVente();
         oeuvreVente.setTitreOeuvrevente(request.getParameter("titre"));
         oeuvreVente.setPrixOeuvrevente(Float.parseFloat(request.getParameter("prix")));
@@ -118,5 +119,17 @@ public class OeuvreController extends BaseController {
         }
 
         this.render("/listerOeuvreVente.jsp", request, response);
+    }
+
+    public void deleteAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            OeuvreService oeuvreService = new OeuvreService();
+            System.out.println("Num oeuvre vente " + request.getParameter("idOeuvrevente"));
+            oeuvreService.supprimerOeuvreVente(Integer.parseInt(request.getParameter("idOeuvrevente")));
+        } catch (MonException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        this.render("/index.jsp", request, response);
     }
 }
