@@ -110,6 +110,8 @@ public class OeuvreController extends BaseController {
 
             OeuvreService svc = new OeuvreService();
             request.setAttribute("mesOeuvresVente", svc.modifierOeuvreVente(oeuvreVente));
+            request.setAttribute("mesOeuvresVente", svc.consulterListeOeuvresVente(
+            ));
         }
         catch (Exception e){
             e.printStackTrace();
