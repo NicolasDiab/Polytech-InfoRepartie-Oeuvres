@@ -7,7 +7,7 @@
 <h1> Ajout d'une réservation </h1>
 
 
-<form name='identification' method="post" action="ReservationController?action=insererReservation">
+<form name='identification' method="post" action="ReservationController?action=add">
     <div class="form-group">
         <label for="adherentNum">Adhérent </label>
         <select name="adherentNum" class="form-control" id="adherentNum">

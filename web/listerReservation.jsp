@@ -39,16 +39,16 @@
             <td>${item.date}</td>
             <td>${item.statut}</td>
             <td>
-                <a href="ReservationController?action=modifierPageReservation&adherentNum=${item.adherent.idAdherent}&oeuvreVenteNum=${item.oeuvreVente.idOeuvrevente}"><i class="glyphicon glyphicon-edit"></i>Modifier</a>
+                <a href="ReservationController?action=update&adherentNum=${item.adherent.idAdherent}&oeuvreVenteNum=${item.oeuvreVente.idOeuvrevente}"><i class="glyphicon glyphicon-edit"></i>Modifier</a>
 
-                <a href="ReservationController?action=supprimerReservation&adherentNum=${item.adherent.idAdherent}&oeuvreVenteNum=${item.oeuvreVente.idOeuvrevente}"><i class="glyphicon glyphicon-trash"></i>Supprimer</a>
+                <a href="ReservationController?action=delete&adherentNum=${item.adherent.idAdherent}&oeuvreVenteNum=${item.oeuvreVente.idOeuvrevente}"><i class="glyphicon glyphicon-trash"></i>Supprimer</a>
             </td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
-<a href="/ReservationController?action=ajouterReservation" class="btn btn-danger">Ajouter réservation</a>
+<a href="/ReservationController?action=add" class="btn btn-danger">Ajouter réservation</a>
 
 <a href="/" class="btn btn-primary">Retour à l'accueil</a>
 

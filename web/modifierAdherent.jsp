@@ -5,7 +5,7 @@
 
 <h1 class="text-center"> Modifier un adhérent</h1>
 
-<form name='identification' method="post" action="AdherentController?action=modifierActionAdherent"
+<form name='identification' method="post" action="AdherentController?action=update"
       onsubmit="return teste()">
     <div class="form-group">
         <label for="nom">Nom de l'adherent </label>

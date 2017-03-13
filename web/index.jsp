@@ -31,7 +31,7 @@
 			<div class="card text-center">
 				<div class="card-block">
 					<h4 class="card-title">Gestion des adhérents</h4>
-					<a href="AdherentController?action=listerAdherent" class="btn btn-primary">Voir la liste</a>
+					<a href="AdherentController?action=list" class="btn btn-primary">Voir la liste</a>
 				</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 			<div class="card text-center">
 				<div class="card-block">
 					<h4 class="card-title">Gestion des réservations</h4>
-					<a href="ReservationController?action=listerReservation" class="btn btn-primary">Voir la liste</a>
+					<a href="ReservationController?action=list" class="btn btn-primary">Voir la liste</a>
 				</div>
 			</div>
 		</div>

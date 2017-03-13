@@ -27,13 +27,13 @@
             <td>${item.prenomAdherent}</td>
             <td>${item.villeAdherent}</td>
             <td>
-                <a href="AdherentController?action=modifierPageAdherent&adherentNum=${item.idAdherent}">Modifier</a>
-                <a href="AdherentController?action=supprimerAdherent&adherentNum=${item.idAdherent}">Suppimer</a>
+                <a href="AdherentController?action=update&adherentNum=${item.idAdherent}">Modifier</a>
+                <a href="AdherentController?action=delete&adherentNum=${item.idAdherent}">Suppimer</a>
             </td>
         </tr>
     </c:forEach>
     <tbody>
 </table>
-<a href="/AdherentController?action=ajouterAdherent" class="btn btn-danger">Ajouter adherent</a>
+<a href="/AdherentController?action=add" class="btn btn-danger">Ajouter adherent</a>
 <a href="/" class="btn btn-primary">Retour à l'accueil</a>
 <jsp:include page="part/footer.jsp"/>

@@ -5,7 +5,7 @@
 
 <h1 class="text-center">Modifier une réservation</h1>
 
-<form name='identification' method="post" action="ReservationController?action=modifierActionReservation"
+<form name='identification' method="post" action="ReservationController?action=update"
       onsubmit="return teste()">
     <div class="form-group">
         <label for="date">Date </label>

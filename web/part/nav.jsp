@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/AdherentController?action=listerAdherent">Liste des adherents<span
+                <a class="nav-link" href="/AdherentController?action=list">Liste des adherents<span
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -24,7 +24,7 @@
                         class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/ReservationController?action=listerReservation">Liste des réservations <span
+                <a class="nav-link" href="/ReservationController?action=list">Liste des réservations <span
                         class="sr-only">(current)</span></a>
             </li>
         </ul>
