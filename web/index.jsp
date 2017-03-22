@@ -58,15 +58,7 @@
 					<a href="ReservationController?action=list" class="btn btn-primary">Voir la liste</a>
 				</div>
 			</div>
-		</div>
-		<div class="col-sm-3">
-			<div class="card text-center">
-				<div class="card-block">
-					<h4 class="card-title">Test de base controller</h4>
-					<a href="TestController?action=list" class="btn btn-primary">Voir la liste</a>
-				</div>
-			</div>
-		</div>
+		</div>d
 	</div>
 </section>
 

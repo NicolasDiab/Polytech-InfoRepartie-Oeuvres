@@ -46,6 +46,7 @@ public class ReservationController extends BaseController {
         }
         this.render("/listerReservation.jsp",request,response);
     }
+
     public void addAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try {
             AdherentService adherentService = new AdherentService();
