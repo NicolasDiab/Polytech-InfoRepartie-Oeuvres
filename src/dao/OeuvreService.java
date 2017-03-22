@@ -69,4 +69,22 @@ public class OeuvreService {
             throw e;
         }
     }
+
+    public OeuvreVente modifierOeuvreVente(OeuvreVente oeuvreVente) throws MonException {
+        System.out.println("Etat OeuvreVente " + oeuvreVente.getEtatOeuvrevente());
+        String mysql = "update oeuvrevente set titre_oeuvrevente='" + oeuvreVente.getTitreOeuvrevente() + "', " +
+                "etat_oeuvrevente='" + oeuvreVente.getEtatOeuvrevente() + "', prix_oeuvrevente="
+                + oeuvreVente.getPrixOeuvrevente() + ", id_proprietaire='"
+                + oeuvreVente.getProprietaire().getIdProprietaire() + "' where id_oeuvrevente=" + oeuvreVente.getIdOeuvrevente();
+        DialogueBd dialogueBd = DialogueBd.getInstance();
+        dialogueBd.execute(mysql);
+
+        return oeuvreVente;
+    }
+
+    public void supprimerOeuvreVente(int numero) throws MonException {
+        String mysql = "delete from oeuvrevente where id_oeuvrevente=" + numero;
+        DialogueBd dialogueBd = DialogueBd.getInstance();
+        dialogueBd.execute(mysql);
+    }
 }

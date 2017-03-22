@@ -29,6 +29,11 @@
                     ${item.proprietaire.prenomProprietaire}
                     ${item.proprietaire.nomProprietaire}
             </td>
+            <td>
+                <a href="OeuvreController?action=update&idOeuvrevente=${item.idOeuvrevente}"><font
+                        face="Arial">Modifier</font></a>
+                <a href="OeuvreController?action=delete&idOeuvrevente=${item.idOeuvrevente}">Suppimer</a>
+            </td>
         </tr>
     </c:forEach>
     </tbody>
